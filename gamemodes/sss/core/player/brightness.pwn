@@ -35,9 +35,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, BrightnessUI[playerid], 0.500000, 50.000000);
 	PlayerTextDrawColor				(playerid, BrightnessUI[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, BrightnessUI[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, BrightnessUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, BrightnessUI[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, BrightnessUI[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, BrightnessUI[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, BrightnessUI[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, BrightnessUI[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, BrightnessUI[playerid], 640.000000, 0.000000);
 }

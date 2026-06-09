@@ -58,9 +58,9 @@ hook OnGameModeInit()
 	TextDrawLetterSize			(page_Left, 0.5, 2.0);
 	TextDrawColor				(page_Left, -1);
 	TextDrawSetOutline			(page_Left, 0);
-	TextDrawSetProportional		(page_Left, 1);
+	TextDrawSetProportional		(page_Left, true);
 	TextDrawSetShadow			(page_Left, 1);
-	TextDrawUseBox				(page_Left, 1);
+	TextDrawUseBox				(page_Left, true);
 	TextDrawBoxColor			(page_Left, 128);
 	TextDrawTextSize			(page_Left, 25.0, 75.0);
 	TextDrawSetSelectable		(page_Left, true);
@@ -72,9 +72,9 @@ hook OnGameModeInit()
 	TextDrawLetterSize			(page_Right, 0.5, 2.0);
 	TextDrawColor				(page_Right, -1);
 	TextDrawSetOutline			(page_Right, 0);
-	TextDrawSetProportional		(page_Right, 1);
+	TextDrawSetProportional		(page_Right, true);
 	TextDrawSetShadow			(page_Right, 1);
-	TextDrawUseBox				(page_Right, 1);
+	TextDrawUseBox				(page_Right, true);
 	TextDrawBoxColor			(page_Right, 128);
 	TextDrawTextSize			(page_Right, 25.0, 75.0);
 	TextDrawSetSelectable		(page_Right, true);

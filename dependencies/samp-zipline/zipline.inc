@@ -380,7 +380,7 @@ _zipline_enter(playerid, id) {
 
 	zip_PlayerSpeedMult[playerid] = 0.2;
 
-	ApplyAnimation(playerid, "PED", "CLIMB_IDLE", 4.0, 1, 0, 0, 0, 0, 1);
+	ApplyAnimation(playerid, "PED", "CLIMB_IDLE", 4.0, true, false, false, false, 0, 1);
 	zip_currentZipline[playerid] = id;
 
 	zip_UpdateTimer[playerid] = repeat ZiplineUpdate(playerid);

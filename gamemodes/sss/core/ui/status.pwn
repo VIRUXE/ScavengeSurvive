@@ -32,7 +32,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, VersionInfo[playerid], 0.240000, 1.000000);
 	PlayerTextDrawColor				(playerid, VersionInfo[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, VersionInfo[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, VersionInfo[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, VersionInfo[playerid], true);
 }
 
 hook OnPlayerScriptUpdate(playerid)

@@ -82,7 +82,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawColor				(playerid, WeaponAmmoUI[playerid], -1);
 	PlayerTextDrawSetShadow(playerid, WeaponAmmoUI[playerid], 0);
 	PlayerTextDrawSetOutline		(playerid, WeaponAmmoUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, WeaponAmmoUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, WeaponAmmoUI[playerid], true);
 	PlayerTextDrawTextSize			(playerid, WeaponAmmoUI[playerid], 1613.000000, -118.533325);
 
 	itmw_DropItemID[playerid] = INVALID_ITEM_ID;
@@ -532,7 +532,7 @@ _ReloadWeapon(playerid)
 	switch(itmw_Data[itmw_ItemTypeWeapon[itemtype]][itmw_baseWeapon])
 	{
 		default:
-			ApplyAnimation(playerid, "COLT45", "COLT45_RELOAD", 2.0, 0, 1, 1, 0, 0);
+			ApplyAnimation(playerid, "COLT45", "COLT45_RELOAD", 2.0, false, true, true, false, 0);
 	}
 
 	UpdatePlayerWeaponItem(playerid);
@@ -785,7 +785,7 @@ timer _UnloadWeapon[300](playerid, _itemid)
 	UpdatePlayerWeaponItem(playerid);
 	itmw_DropItemID[playerid] = INVALID_ITEM_ID;
 
-	ApplyAnimation(playerid, "BOMBER", "BOM_PLANT_IN", 5.0, 1, 0, 0, 0, 450);
+	ApplyAnimation(playerid, "BOMBER", "BOM_PLANT_IN", 5.0, true, false, false, false, 450);
 	ShowActionText(playerid, ls(playerid, "WEAPAUNLOAD", true), 3000);
 
 	return;

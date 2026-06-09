@@ -60,7 +60,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, wl_CountdownUI[playerid], 0.20, 1.0);
 	PlayerTextDrawColor				(playerid, wl_CountdownUI[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, wl_CountdownUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, wl_CountdownUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, wl_CountdownUI[playerid], true);
 }
 
 hook OnPlayerDisconnect(playerid)

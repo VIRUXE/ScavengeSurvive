@@ -69,7 +69,7 @@ CreatePlayerTile(playerid, &PlayerText:title, &PlayerText:tile, &PlayerText:item
 	PlayerTextDrawLetterSize		(playerid, title, 0.15, 1.0);
 	PlayerTextDrawColor				(playerid, title, -1);
 	PlayerTextDrawSetOutline		(playerid, title, 1);
-	PlayerTextDrawSetProportional	(playerid, title, 1);
+	PlayerTextDrawSetProportional	(playerid, title, true);
 	PlayerTextDrawTextSize			(playerid, title, height, width - 4);
 	PlayerTextDrawUseBox			(playerid, title, true);
 
@@ -87,7 +87,7 @@ CreatePlayerTile(playerid, &PlayerText:title, &PlayerText:tile, &PlayerText:item
 	PlayerTextDrawLetterSize		(playerid, item, 0.15, 1.0);
 	PlayerTextDrawColor				(playerid, item, -1);
 	PlayerTextDrawSetOutline		(playerid, item, 1);
-	PlayerTextDrawSetProportional	(playerid, item, 1);
+	PlayerTextDrawSetProportional	(playerid, item, true);
 	PlayerTextDrawTextSize			(playerid, item, height, width + 10);
 }
 

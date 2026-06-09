@@ -53,9 +53,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, ToolTipText[playerid], 0.300000, 1.499999);
 	PlayerTextDrawColor				(playerid, ToolTipText[playerid], 16711935);
 	PlayerTextDrawSetOutline		(playerid, ToolTipText[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, ToolTipText[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, ToolTipText[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, ToolTipText[playerid], 0);
-	PlayerTextDrawUseBox			(playerid, ToolTipText[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, ToolTipText[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, ToolTipText[playerid], 0);
 	PlayerTextDrawTextSize			(playerid, ToolTipText[playerid], 520.000000, 0.000000);
 }

@@ -115,9 +115,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, ClassButtonMale[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, ClassButtonMale[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, ClassButtonMale[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, ClassButtonMale[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, ClassButtonMale[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, ClassButtonMale[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, ClassButtonMale[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, ClassButtonMale[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, ClassButtonMale[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, ClassButtonMale[playerid], 44.000000, 100.000000);
 	PlayerTextDrawSetSelectable		(playerid, ClassButtonMale[playerid], true);
@@ -129,9 +129,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, ClassButtonFemale[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, ClassButtonFemale[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, ClassButtonFemale[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, ClassButtonFemale[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, ClassButtonFemale[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, ClassButtonFemale[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, ClassButtonFemale[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, ClassButtonFemale[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, ClassButtonFemale[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, ClassButtonFemale[playerid], 44.000000, 100.000000);
 	PlayerTextDrawSetSelectable		(playerid, ClassButtonFemale[playerid], true);
@@ -210,15 +210,15 @@ PlayerSpawnExistingCharacter(playerid)
 
 	if(GetPlayerStance(playerid) == 1)
 	{
-		ApplyAnimation(playerid, "SUNBATHE", "PARKSIT_M_OUT", 4.0, 0, 0, 0, 0, 0);
+		ApplyAnimation(playerid, "SUNBATHE", "PARKSIT_M_OUT", 4.0, false, false, false, false, 0);
 	}
 	else if(GetPlayerStance(playerid) == 2)
 	{
-		ApplyAnimation(playerid, "SUNBATHE", "PARKSIT_M_OUT", 4.0, 0, 0, 0, 0, 0);
+		ApplyAnimation(playerid, "SUNBATHE", "PARKSIT_M_OUT", 4.0, false, false, false, false, 0);
 	}
 	else if(GetPlayerStance(playerid) == 3)
 	{
-		ApplyAnimation(playerid, "ROB_BANK", "SHP_HandsUp_Scr", 4.0, 0, 1, 1, 1, 0);
+		ApplyAnimation(playerid, "ROB_BANK", "SHP_HandsUp_Scr", 4.0, false, true, true, true, 0);
 	}
 
 	Logger_Log("player spawned existing character",

@@ -679,7 +679,7 @@ OnGameModeInit_Setup()
 	TextDrawLetterSize			(RestartCount, 0.400000, 1.600000);
 	TextDrawColor				(RestartCount, -1);
 	TextDrawSetOutline			(RestartCount, 1);
-	TextDrawSetProportional		(RestartCount, 1);
+	TextDrawSetProportional		(RestartCount, true);
 }
 
 public OnGameModeExit()

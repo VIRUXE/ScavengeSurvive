@@ -172,7 +172,7 @@ Error:LoadAccount(playerid)
 {
 	if(CallLocalFunction("OnPlayerLoadAccount", "d", playerid))
 	{
-		return NoError(-1);
+		return Ok(-1);
 	}
 
 	new
@@ -208,7 +208,7 @@ Error:LoadAccount(playerid)
 		Logger_Log("LoadAccount: account does not exist",
 			Logger_I("playerid", playerid)
 		);
-		return NoError(0);
+		return Ok(0);
 	}
 
 	stmt_bind_value(stmt_AccountLoad, 0, DB::TYPE_STRING, name, MAX_PLAYER_NAME);
@@ -234,7 +234,7 @@ Error:LoadAccount(playerid)
 
 	if(!active)
 	{
-		return NoError(4);
+		return Ok(4);
 	}
 
 	if(IsWhitelistActive())
@@ -244,7 +244,7 @@ Error:LoadAccount(playerid)
 		if(!IsPlayerInWhitelist(playerid))
 		{
 			ChatMsgLang(playerid, YELLOW, "WHITELISTNO");
-			return NoError(3);
+			return Ok(3);
 		}
 	}
 
@@ -261,16 +261,16 @@ Error:LoadAccount(playerid)
 
 	if(gAutoLoginWithIP && GetPlayerIpAsInt(playerid) == ipv4)
 	{
-		return NoError(2);
+		return Ok(2);
 	}
 
-	return NoError(1);
+	return Ok(1);
 }
 
 
 /*==============================================================================
 
-	Password hashing (open.mp SHA256_PassHash with a per-account random salt).
+	Password hashing (open.mp SHA256_Hash with a per-account random salt).
 
 	Hashes are stored in the password field as "salt:hash" so no database
 	schema change is required. WP_Hash (Whirlpool plugin) was used previously;
@@ -283,14 +283,14 @@ Error:LoadAccount(playerid)
 static stock GeneratePasswordSalt(salt[], len = sizeof(salt))
 {
 	static const charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	new max = len - 1;
-	if(max > ACCOUNT_SALT_LEN)
-		max = ACCOUNT_SALT_LEN;
+	new saltLen = len - 1;
+	if(saltLen > ACCOUNT_SALT_LEN)
+		saltLen = ACCOUNT_SALT_LEN;
 
-	for(new i; i < max; i++)
+	for(new i; i < saltLen; i++)
 		salt[i] = charset[random(sizeof(charset) - 1)];
 
-	salt[max] = EOS;
+	salt[saltLen] = EOS;
 }
 
 // Produces a storable "salt:hash" string for the given plaintext password.
@@ -301,7 +301,7 @@ stock HashPassword(const password[], dest[], len = sizeof(dest))
 		hash[65];
 
 	GeneratePasswordSalt(salt);
-	SHA256_PassHash(password, salt, hash, sizeof(hash));
+	SHA256_Hash(password, salt, hash, sizeof(hash));
 	format(dest, len, "%s:%s", salt, hash);
 }
 
@@ -319,7 +319,7 @@ stock bool:VerifyPassword(const password[], const stored[])
 
 	strmid(salt, stored, 0, pos, sizeof(salt));
 	strmid(storedhash, stored, pos + 1, strlen(stored), sizeof(storedhash));
-	SHA256_PassHash(password, salt, hash, sizeof(hash));
+	SHA256_Hash(password, salt, hash, sizeof(hash));
 
 	return !strcmp(hash, storedhash);
 }
@@ -363,7 +363,7 @@ Error:CreateAccount(playerid, const password[])
 		{
 			ChatMsgLang(playerid, YELLOW, "WHITELISTNO");
 			WhitelistKick(playerid);
-			return NoError(0);
+			return Ok(0);
 		}
 	}
 
@@ -381,7 +381,7 @@ Error:CreateAccount(playerid, const password[])
 
 	CallLocalFunction("OnPlayerRegister", "d", playerid);
 
-	return NoError(1);
+	return Ok(1);
 }
 
 DisplayRegisterPrompt(playerid)

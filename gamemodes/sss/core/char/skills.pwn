@@ -64,7 +64,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, skl_PlayerNotification, 0.400000, 1.399999);
 	PlayerTextDrawColor				(playerid, skl_PlayerNotification, 16711935);
 	PlayerTextDrawSetOutline		(playerid, skl_PlayerNotification, 1);
-	PlayerTextDrawSetProportional	(playerid, skl_PlayerNotification, 1);
+	PlayerTextDrawSetProportional	(playerid, skl_PlayerNotification, true);
 }
 
 stock PlayerGainSkillExperience(playerid, const skillname[], Float:mult = 0.0)

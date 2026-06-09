@@ -237,8 +237,8 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_Main[playerid], 0.500000, 1.499999);
 	PlayerTextDrawColor				(playerid, RadioUI_Main[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_Main[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_Main[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_Main[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_Main[playerid], true);
+	PlayerTextDrawUseBox			(playerid, RadioUI_Main[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_Main[playerid], 100);
 	PlayerTextDrawTextSize			(playerid, RadioUI_Main[playerid], 0.000000, 200.000000);
 
@@ -249,7 +249,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_Strip[playerid], 0.300000, 1.000000);
 	PlayerTextDrawColor				(playerid, RadioUI_Strip[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_Strip[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_Strip[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_Strip[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, RadioUI_Strip[playerid], 0);
 
 	RadioUI_KnobL[playerid]					= CreatePlayerTextDraw(playerid, 220.000000, 203.000000, "LD_DRV:nawtxt");
@@ -258,8 +258,8 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_KnobL[playerid], 0.500000, 1.000000);
 	PlayerTextDrawColor				(playerid, RadioUI_KnobL[playerid], 0x780000FA);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_KnobL[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_KnobL[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_KnobL[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_KnobL[playerid], true);
+	PlayerTextDrawUseBox			(playerid, RadioUI_KnobL[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_KnobL[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, RadioUI_KnobL[playerid], 30.000000, 30.000000);
 	PlayerTextDrawSetSelectable		(playerid, RadioUI_KnobL[playerid], true);
@@ -270,8 +270,8 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_KnobR[playerid], 0.500000, 1.000000);
 	PlayerTextDrawColor				(playerid, RadioUI_KnobR[playerid], 0x780000FA);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_KnobR[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_KnobR[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_KnobR[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_KnobR[playerid], true);
+	PlayerTextDrawUseBox			(playerid, RadioUI_KnobR[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_KnobR[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, RadioUI_KnobR[playerid], 30.000000, 30.000000);
 	PlayerTextDrawSetSelectable		(playerid, RadioUI_KnobR[playerid], true);
@@ -283,9 +283,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_Mode[playerid], 0.300000, 1.499999);
 	PlayerTextDrawColor				(playerid, RadioUI_Mode[playerid], 16777215);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_Mode[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_Mode[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_Mode[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, RadioUI_Mode[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_Mode[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, RadioUI_Mode[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_Mode[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, RadioUI_Mode[playerid], 20.000000, 30.000000);
 	PlayerTextDrawSetSelectable		(playerid, RadioUI_Mode[playerid], true);
@@ -297,9 +297,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_Freq[playerid], 0.300000, 1.499999);
 	PlayerTextDrawColor				(playerid, RadioUI_Freq[playerid], 16777215);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_Freq[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_Freq[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_Freq[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, RadioUI_Freq[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_Freq[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, RadioUI_Freq[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_Freq[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, RadioUI_Freq[playerid], 20.000000, 120.000000);
 	PlayerTextDrawSetSelectable		(playerid, RadioUI_Freq[playerid], true);
@@ -311,9 +311,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_Power[playerid], 0.400000, 1.499999);
 	PlayerTextDrawColor				(playerid, RadioUI_Power[playerid], -16776961);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_Power[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_Power[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_Power[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, RadioUI_Power[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_Power[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, RadioUI_Power[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_Power[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, RadioUI_Power[playerid], 20.000000, 30.000000);
 	PlayerTextDrawSetSelectable		(playerid, RadioUI_Power[playerid], true);
@@ -325,9 +325,9 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, RadioUI_Back[playerid], 0.300000, 1.499999);
 	PlayerTextDrawColor				(playerid, RadioUI_Back[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, RadioUI_Back[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, RadioUI_Back[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, RadioUI_Back[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, RadioUI_Back[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, RadioUI_Back[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, RadioUI_Back[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, RadioUI_Back[playerid], 100);
 	PlayerTextDrawTextSize			(playerid, RadioUI_Back[playerid], 20.000000, 200.000000);
 	PlayerTextDrawSetSelectable		(playerid, RadioUI_Back[playerid], true);

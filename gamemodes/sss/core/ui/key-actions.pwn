@@ -30,7 +30,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, KeyActions[playerid], 0.300000, 1.499999);
 	PlayerTextDrawColor				(playerid, KeyActions[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, KeyActions[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, KeyActions[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, KeyActions[playerid], true);
 }
 
 

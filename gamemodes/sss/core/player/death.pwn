@@ -423,9 +423,9 @@ hook OnGameModeInit()
 	TextDrawLetterSize			(DeathText, 0.500000, 2.000000);
 	TextDrawColor				(DeathText, -1);
 	TextDrawSetOutline			(DeathText, 0);
-	TextDrawSetProportional		(DeathText, 1);
+	TextDrawSetProportional		(DeathText, true);
 	TextDrawSetShadow			(DeathText, 1);
-	TextDrawUseBox				(DeathText, 1);
+	TextDrawUseBox				(DeathText, true);
 	TextDrawBoxColor			(DeathText, 85);
 	TextDrawTextSize			(DeathText, 20.000000, 150.000000);
 
@@ -436,9 +436,9 @@ hook OnGameModeInit()
 	TextDrawLetterSize			(DeathButton, 0.370000, 1.599999);
 	TextDrawColor				(DeathButton, -1);
 	TextDrawSetOutline			(DeathButton, 0);
-	TextDrawSetProportional		(DeathButton, 1);
+	TextDrawSetProportional		(DeathButton, true);
 	TextDrawSetShadow			(DeathButton, 1);
-	TextDrawUseBox				(DeathButton, 1);
+	TextDrawUseBox				(DeathButton, true);
 	TextDrawBoxColor			(DeathButton, 85);
 	TextDrawTextSize			(DeathButton, 20.000000, 150.000000);
 	TextDrawSetSelectable		(DeathButton, true);

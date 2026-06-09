@@ -143,9 +143,9 @@ ACMD:gotopos[2](playerid, params[])
 
 ACMD:freeze[2](playerid, params[])
 {
-	new targetid, delay;
+	new targetid, duration;
 
-	if(sscanf(params, "dD(0)", targetid, delay))
+	if(sscanf(params, "dD(0)", targetid, duration))
 		return ChatMsg(playerid, YELLOW, " >  Usage: /freeze [playerid] (seconds)");
 
 	if(GetPlayerAdminLevel(targetid) >= GetPlayerAdminLevel(playerid) && playerid != targetid)
@@ -154,12 +154,12 @@ ACMD:freeze[2](playerid, params[])
 	if(!IsPlayerConnected(targetid))
 		return 4;
 
-	FreezePlayer(targetid, delay * 1000, true);
+	FreezePlayer(targetid, duration * 1000, true);
 	
-	if(delay > 0)
+	if(duration > 0)
 	{
-		ChatMsg(playerid, YELLOW, " >  Frozen %P for %d seconds", targetid, delay);
-		ChatMsgLang(targetid, YELLOW, "FREEZETIMER", delay);
+		ChatMsg(playerid, YELLOW, " >  Frozen %P for %d seconds", targetid, duration);
+		ChatMsgLang(targetid, YELLOW, "FREEZETIMER", duration);
 	}
 	else
 	{

@@ -358,7 +358,7 @@ _StartWoodCutting(playerid, treeid)
 	StartHoldAction(playerid, floatround(1.1 * (mult * start)), mult * (start - end));
 
 	SetPlayerToFaceTree(playerid, treeid);
-	ApplyAnimation(playerid, "CHAINSAW", "CSAW_G", 4.0, 1, 0, 0, 0, 0, 1);
+	ApplyAnimation(playerid, "CHAINSAW", "CSAW_G", 4.0, true, false, false, false, 0, 1);
 	tree_CuttingTree[playerid] = treeid;
 }
 

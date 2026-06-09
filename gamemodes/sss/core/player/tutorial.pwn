@@ -41,9 +41,9 @@ hook OnPlayerLoadAccount(playerid)
 	PlayerTextDrawLetterSize		(playerid, ClassButtonTutorial[playerid], 0.25, 1.000000);
 	PlayerTextDrawColor				(playerid, ClassButtonTutorial[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, ClassButtonTutorial[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, ClassButtonTutorial[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, ClassButtonTutorial[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, ClassButtonTutorial[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, ClassButtonTutorial[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, ClassButtonTutorial[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, ClassButtonTutorial[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, ClassButtonTutorial[playerid], 34.000000, 150.000000);
 	PlayerTextDrawSetSelectable		(playerid, ClassButtonTutorial[playerid], true);
@@ -77,9 +77,9 @@ hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
 		PlayerTextDrawLetterSize		(playerid, TutUI_Keys[playerid], 0.300000, 1.500000);
 		PlayerTextDrawColor				(playerid, TutUI_Keys[playerid], -1);
 		PlayerTextDrawSetOutline		(playerid, TutUI_Keys[playerid], 0);
-		PlayerTextDrawSetProportional	(playerid, TutUI_Keys[playerid], 1);
+		PlayerTextDrawSetProportional	(playerid, TutUI_Keys[playerid], true);
 		PlayerTextDrawSetShadow			(playerid, TutUI_Keys[playerid], 1);
-		PlayerTextDrawUseBox			(playerid, TutUI_Keys[playerid], 1);
+		PlayerTextDrawUseBox			(playerid, TutUI_Keys[playerid], true);
 		PlayerTextDrawBoxColor			(playerid, TutUI_Keys[playerid], 100);
 		PlayerTextDrawTextSize			(playerid, TutUI_Keys[playerid], 480.000000, 0.000000);
 
@@ -90,9 +90,9 @@ hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
 		PlayerTextDrawLetterSize		(playerid, TutUI_Watch[playerid], 0.300000, 1.500000);
 		PlayerTextDrawColor				(playerid, TutUI_Watch[playerid], -1);
 		PlayerTextDrawSetOutline		(playerid, TutUI_Watch[playerid], 0);
-		PlayerTextDrawSetProportional	(playerid, TutUI_Watch[playerid], 1);
+		PlayerTextDrawSetProportional	(playerid, TutUI_Watch[playerid], true);
 		PlayerTextDrawSetShadow			(playerid, TutUI_Watch[playerid], 1);
-		PlayerTextDrawUseBox			(playerid, TutUI_Watch[playerid], 1);
+		PlayerTextDrawUseBox			(playerid, TutUI_Watch[playerid], true);
 		PlayerTextDrawBoxColor			(playerid, TutUI_Watch[playerid], 100);
 		PlayerTextDrawTextSize			(playerid, TutUI_Watch[playerid], 0.000000, 150.000000);
 
@@ -102,9 +102,9 @@ hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
 		PlayerTextDrawLetterSize		(playerid, TutUI_Stats[playerid], 0.300000, 1.500000);
 		PlayerTextDrawColor				(playerid, TutUI_Stats[playerid], -1);
 		PlayerTextDrawSetOutline		(playerid, TutUI_Stats[playerid], 0);
-		PlayerTextDrawSetProportional	(playerid, TutUI_Stats[playerid], 1);
+		PlayerTextDrawSetProportional	(playerid, TutUI_Stats[playerid], true);
 		PlayerTextDrawSetShadow			(playerid, TutUI_Stats[playerid], 1);
-		PlayerTextDrawUseBox			(playerid, TutUI_Stats[playerid], 1);
+		PlayerTextDrawUseBox			(playerid, TutUI_Stats[playerid], true);
 		PlayerTextDrawBoxColor			(playerid, TutUI_Stats[playerid], 100);
 		PlayerTextDrawTextSize			(playerid, TutUI_Stats[playerid], 480.000000, 0.000000);
 
@@ -114,9 +114,9 @@ hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
 		PlayerTextDrawLetterSize		(playerid, TutUI_Exit[playerid], 0.300000, 1.500000);
 		PlayerTextDrawColor				(playerid, TutUI_Exit[playerid], -1);
 		PlayerTextDrawSetOutline		(playerid, TutUI_Exit[playerid], 0);
-		PlayerTextDrawSetProportional	(playerid, TutUI_Exit[playerid], 1);
+		PlayerTextDrawSetProportional	(playerid, TutUI_Exit[playerid], true);
 		PlayerTextDrawSetShadow			(playerid, TutUI_Exit[playerid], 1);
-		PlayerTextDrawUseBox			(playerid, TutUI_Exit[playerid], 1);
+		PlayerTextDrawUseBox			(playerid, TutUI_Exit[playerid], true);
 		PlayerTextDrawBoxColor			(playerid, TutUI_Exit[playerid], 100);
 		PlayerTextDrawTextSize			(playerid, TutUI_Exit[playerid], 630.000000, 0.000000);
 

@@ -176,7 +176,7 @@ stock HackKeypad(playerid, keypadid, match)
 	{
 		kp_Hacking[playerid] = 1;
 		kp_HackTimer[playerid] = repeat HackKeypadUpdate(playerid, keypadid, match);
-		ApplyAnimation(playerid, "COP_AMBIENT", "COPBROWSE_LOOP", 4.0, 1, 0, 0, 0, 0);
+		ApplyAnimation(playerid, "COP_AMBIENT", "COPBROWSE_LOOP", 4.0, true, false, false, false, 0);
 	}
 }
 
@@ -337,8 +337,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Background[playerid], 0.500000, 16.199998);
 	PlayerTextDrawColor				(playerid, kp_Background[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Background[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Background[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Background[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Background[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Background[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Background[playerid], 80);
 	PlayerTextDrawTextSize			(playerid, kp_Background[playerid], 20.000000, 82.000000);
 
@@ -348,8 +348,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeL[playerid], 0.500000, -1.100000);
 	PlayerTextDrawColor				(playerid, kp_EdgeL[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeL[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_EdgeL[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_EdgeL[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_EdgeL[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_EdgeL[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_EdgeL[playerid], -2021161081);
 	PlayerTextDrawTextSize			(playerid, kp_EdgeL[playerid], 361.000000, 82.000000);
 
@@ -359,8 +359,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeT[playerid], 0.500000, 16.199998);
 	PlayerTextDrawColor				(playerid, kp_EdgeT[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeT[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_EdgeT[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_EdgeT[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_EdgeT[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_EdgeT[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_EdgeT[playerid], -2021161081);
 	PlayerTextDrawTextSize			(playerid, kp_EdgeT[playerid], 275.000000, 82.000000);
 
@@ -370,8 +370,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeB[playerid], 0.500000, -1.100000);
 	PlayerTextDrawColor				(playerid, kp_EdgeB[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeB[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_EdgeB[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_EdgeB[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_EdgeB[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_EdgeB[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_EdgeB[playerid], -2021161081);
 	PlayerTextDrawTextSize			(playerid, kp_EdgeB[playerid], 365.000000, 82.000000);
 
@@ -381,8 +381,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeR[playerid], 0.500000, 16.800001);
 	PlayerTextDrawColor				(playerid, kp_EdgeR[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeR[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_EdgeR[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_EdgeR[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_EdgeR[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_EdgeR[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_EdgeR[playerid], -2021161081);
 	PlayerTextDrawTextSize			(playerid, kp_EdgeR[playerid], 365.000000, 82.000000);
 
@@ -393,8 +393,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_KeyEnter[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_KeyEnter[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_KeyEnter[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_KeyEnter[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_KeyEnter[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_KeyEnter[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_KeyEnter[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_KeyEnter[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_KeyEnter[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_KeyEnter[playerid], true);
@@ -406,8 +406,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_KeyCancel[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_KeyCancel[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_KeyCancel[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_KeyCancel[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_KeyCancel[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_KeyCancel[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_KeyCancel[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_KeyCancel[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_KeyCancel[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_KeyCancel[playerid], true);
@@ -419,8 +419,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key0[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key0[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key0[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key0[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key0[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key0[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key0[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key0[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key0[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key0[playerid], true);
@@ -432,8 +432,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key1[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key1[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key1[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key1[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key1[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key1[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key1[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key1[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key1[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key1[playerid], true);
@@ -445,8 +445,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key2[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key2[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key2[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key2[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key2[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key2[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key2[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key2[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key2[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key2[playerid], true);
@@ -458,8 +458,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key3[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key3[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key3[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key3[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key3[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key3[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key3[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key3[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key3[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key3[playerid], true);
@@ -471,8 +471,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key4[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key4[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key4[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key4[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key4[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key4[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key4[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key4[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key4[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key4[playerid], true);
@@ -484,8 +484,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key5[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key5[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key5[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key5[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key5[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key5[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key5[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key5[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key5[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key5[playerid], true);
@@ -497,8 +497,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key6[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key6[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key6[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key6[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key6[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key6[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key6[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key6[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key6[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key6[playerid], true);
@@ -510,8 +510,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key7[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key7[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key7[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key7[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key7[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key7[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key7[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key7[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key7[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key7[playerid], true);
@@ -523,8 +523,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key8[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key8[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key8[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key8[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key8[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key8[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key8[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key8[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key8[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key8[playerid], true);
@@ -536,8 +536,8 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Key9[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key9[playerid], 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key9[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, kp_Key9[playerid], 1);
-	PlayerTextDrawUseBox			(playerid, kp_Key9[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Key9[playerid], true);
+	PlayerTextDrawUseBox			(playerid, kp_Key9[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Key9[playerid], 538976384);
 	PlayerTextDrawTextSize			(playerid, kp_Key9[playerid], 20.000000, 20.000000);
 	PlayerTextDrawSetSelectable		(playerid, kp_Key9[playerid], true);
@@ -549,9 +549,9 @@ kp_LoadUI(playerid)
 	PlayerTextDrawLetterSize		(playerid, kp_Display[playerid], 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Display[playerid], -65281);
 	PlayerTextDrawSetOutline		(playerid, kp_Display[playerid], 0);
-	PlayerTextDrawSetProportional	(playerid, kp_Display[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, kp_Display[playerid], true);
 	PlayerTextDrawSetShadow			(playerid, kp_Display[playerid], 0);
-	PlayerTextDrawUseBox			(playerid, kp_Display[playerid], 1);
+	PlayerTextDrawUseBox			(playerid, kp_Display[playerid], true);
 	PlayerTextDrawBoxColor			(playerid, kp_Display[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, kp_Display[playerid], 20.000000, 80.000000);
 

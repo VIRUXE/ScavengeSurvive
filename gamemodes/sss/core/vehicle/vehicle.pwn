@@ -106,7 +106,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, veh_NameUI[playerid], 0.349999, 1.799998);
 	PlayerTextDrawColor				(playerid, veh_NameUI[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, veh_NameUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, veh_NameUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, veh_NameUI[playerid], true);
 
 	veh_SpeedUI[playerid]			=CreatePlayerTextDraw(playerid, 620.000000, 401.000000, "220km/h");
 	PlayerTextDrawAlignment			(playerid, veh_SpeedUI[playerid], 3);
@@ -115,7 +115,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, veh_SpeedUI[playerid], 0.250000, 1.599998);
 	PlayerTextDrawColor				(playerid, veh_SpeedUI[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, veh_SpeedUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, veh_SpeedUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, veh_SpeedUI[playerid], true);
 
 	veh_FuelUI[playerid]			=CreatePlayerTextDraw(playerid, 620.000000, 386.000000, "0.0/0.0L");
 	PlayerTextDrawAlignment			(playerid, veh_FuelUI[playerid], 3);
@@ -124,7 +124,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, veh_FuelUI[playerid], 0.250000, 1.599999);
 	PlayerTextDrawColor				(playerid, veh_FuelUI[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, veh_FuelUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, veh_FuelUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, veh_FuelUI[playerid], true);
 
 	veh_DamageUI[playerid]			=CreatePlayerTextDraw(playerid, 620.000000, 371.000000, "DMG");
 	PlayerTextDrawAlignment			(playerid, veh_DamageUI[playerid], 3);
@@ -133,7 +133,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, veh_DamageUI[playerid], 0.250000, 1.599999);
 	PlayerTextDrawColor				(playerid, veh_DamageUI[playerid], RED);
 	PlayerTextDrawSetOutline		(playerid, veh_DamageUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, veh_DamageUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, veh_DamageUI[playerid], true);
 
 	veh_EngineUI[playerid]			=CreatePlayerTextDraw(playerid, 620.000000, 356.000000, "ENG");
 	PlayerTextDrawAlignment			(playerid, veh_EngineUI[playerid], 3);
@@ -142,7 +142,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, veh_EngineUI[playerid], 0.250000, 1.599999);
 	PlayerTextDrawColor				(playerid, veh_EngineUI[playerid], RED);
 	PlayerTextDrawSetOutline		(playerid, veh_EngineUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, veh_EngineUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, veh_EngineUI[playerid], true);
 
 	veh_DoorsUI[playerid]			=CreatePlayerTextDraw(playerid, 620.000000, 341.000000, "DOR");
 	PlayerTextDrawAlignment			(playerid, veh_DoorsUI[playerid], 3);
@@ -151,7 +151,7 @@ hook OnPlayerConnect(playerid)
 	PlayerTextDrawLetterSize		(playerid, veh_DoorsUI[playerid], 0.250000, 1.599999);
 	PlayerTextDrawColor				(playerid, veh_DoorsUI[playerid], RED);
 	PlayerTextDrawSetOutline		(playerid, veh_DoorsUI[playerid], 1);
-	PlayerTextDrawSetProportional	(playerid, veh_DoorsUI[playerid], 1);
+	PlayerTextDrawSetProportional	(playerid, veh_DoorsUI[playerid], true);
 }
 
 SetPlayerVehicleSpeedUI(playerid, const str[])
