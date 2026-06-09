@@ -51,14 +51,19 @@ func Run(cfg Config) error {
 		pcx.ForceBuild = forceBuild
 		pcx.ForceEnsure = forceEnsure
 		pcx.Relative = true
-		if cfg.RconPassword != "" {
-			pcx.Package.Runtime.RCONPassword = &cfg.RconPassword
-		}
 
 		if err := pcx.RunPrepare(context.Background()); err != nil {
 			return errors.Wrap(err, "failed to prepare runtime")
 		}
 		zap.L().Info("prepared runtime environment")
+	}
+
+	// open.mp reads its settings from config.json; inject the RCON password
+	// there (rather than the legacy sampctl server.cfg runtime).
+	if cfg.RconPassword != "" {
+		if err := SetConfigRconPassword(cfg.RconPassword); err != nil {
+			zap.L().Warn("failed to set rcon password in config.json", zap.Error(err))
+		}
 	}
 
 	sigs := make(chan os.Signal, 1)
@@ -101,16 +106,14 @@ func Run(cfg Config) error {
 
 func staticRuntimeReady(dir string) bool {
 	files := []string{
-		"samp03svr",
-		"server.cfg",
+		"omp-server",
+		"config.json",
+		"components/Pawn.so",
 		"gamemodes/ScavengeSurvive.amx",
-		"plugins/nolog.so",
-		"plugins/crashdetect.so",
 		"plugins/sscanf.so",
 		"plugins/streamer.so",
 		"plugins/chrono.so",
 		"plugins/pawn-memory.so",
-		"plugins/Whirlpool.so",
 		"plugins/uuid.so",
 		"plugins/fsutil.so",
 	}

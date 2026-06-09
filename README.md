@@ -2,7 +2,8 @@
 
 ## Overview
 
-Scavenge and Survive is a PvP SA:MP survival gamemode. The aim of the game is to
+Scavenge and Survive is a PvP survival gamemode for [open.mp](https://open.mp)
+(the SA-MP-compatible San Andreas Multiplayer server). The aim of the game is to
 find supplies such as tools or weapons to help you survive, either alone or in a
 group.
 
@@ -21,22 +22,25 @@ access the gamemode-specific features.
 
 ### Static Release
 
-The Linux release is self-contained: it includes the compiled gamemode, SA-MP
-server, runner, every required plugin, and all Pawn includes. Extract the release
-archive and run:
+The Linux release is self-contained: it includes the compiled gamemode, the
+open.mp server (`omp-server`) and its `components/`, the runner, every required
+legacy plugin, and all Pawn includes. The server is configured via `config.json`
+(open.mp's config format; the previous `server.cfg` is kept as
+`server.cfg.legacy` for reference). Extract the release archive and run:
 
 ```sh
 ./ss.exe
 ```
 
-The runner detects the bundled runtime and starts it directly without using
-`sampctl` or downloading dependencies. The host must provide the 32-bit runtime
-libraries required by the SA-MP server and plugins. On Debian or Ubuntu:
+The runner detects the bundled runtime and starts `omp-server` directly without
+using `sampctl` or downloading dependencies. open.mp's Linux server is 32-bit, as
+are the legacy plugins, so the host must provide the matching 32-bit runtime
+libraries. On Debian or Ubuntu:
 
 ```sh
 sudo dpkg --add-architecture i386
 sudo apt-get update
-sudo apt-get install libuuid1:i386
+sudo apt-get install libatomic1:i386 libuuid1:i386
 ```
 
 ### Development Requirements
@@ -144,6 +148,11 @@ using Pico, this will be done automatically) and let the Runner automatically
 rebuild the server while it's running. See below to learn more about automatic
 update scheduling.
 
+> **Upgrading from the SA-MP release:** passwords are now hashed with open.mp's
+> built-in `SHA256_PassHash` (salted) instead of the Whirlpool plugin. Existing
+> `accounts.db` password hashes are not compatible, so players must re-register
+> (use the `/resetpassword` admin command, or have players create a new account).
+
 ## Runner
 
 The Runner is a simple wrapper around the server binary. It simply keeps the
@@ -163,12 +172,12 @@ after parsing it. It will parse
 output it using the built-in logger. This means logs can be in JSON or other
 formats.
 
-All preamble is removed. This means all the nonsense that the SA-MP server and
+All preamble is removed. This means all the nonsense that the open.mp server and
 plugins print out during initialisation is removed completely. So all you'll see
 is a list of plugins:
 
 ```
-2020-10-19T02:04:21.566+0100    INFO    finished initialising   {"plugins": ["nolog", "crashdetect", "sscanf", "streamer", "chrono", "pawn", "Whirlpool", "fsutil"]}
+2020-10-19T02:04:21.566+0100    INFO    finished initialising   {"plugins": ["sscanf", "streamer", "chrono", "pawn-memory", "uuid", "fsutil"]}
 2020-10-19T02:04:21.567+0100    INFO    [OnGameModeInit] FIRST_INIT
 ```
 

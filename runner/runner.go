@@ -44,9 +44,9 @@ func runBlocking(parentctx context.Context, ps *pubsub.PubSub, in io.Reader, out
 	var binary string
 	switch runtime.GOOS {
 	case "windows":
-		binary = "./samp-server.exe"
+		binary = "./omp-server.exe"
 	case "linux":
-		binary = "./samp03svr"
+		binary = "./omp-server"
 	default:
 		panic("unknown OS")
 	}
@@ -87,4 +87,5 @@ func cmdReader(cmd *exec.Cmd) io.Reader {
 
 func cleanup() {
 	os.Remove("server_log.txt") //nolint:errcheck
+	os.Remove("log.txt")        //nolint:errcheck
 }
