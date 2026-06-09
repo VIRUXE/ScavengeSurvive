@@ -85,23 +85,11 @@ func Run(cfg Config) error {
 
 	zap.L().Info("awaiting signals, cancellations or fatal errors")
 
-	f := func() error {
-		select {
-		case s := <-sigs:
-			return errors.Errorf("signal received: %s", s.String())
-
-		case <-ctx.Done():
-			return context.Canceled
-
-		default:
-			return nil
-		}
-	}
-
-	for {
-		if err := f(); err != nil {
-			return err
-		}
+	select {
+	case s := <-sigs:
+		return errors.Errorf("signal received: %s", s.String())
+	case <-ctx.Done():
+		return context.Canceled
 	}
 }
 
