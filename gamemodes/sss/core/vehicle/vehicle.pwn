@@ -634,6 +634,11 @@ hook OnPlayerStateChange(playerid, newstate, oldstate)
 
 	if(oldstate == PLAYER_STATE_DRIVER)
 	{
+		// Always clear the vehicle HUD when leaving the driver seat (including
+		// dying in a vehicle), even if veh_Current is no longer valid - otherwise
+		// the DMG/ENG textdraws linger after respawning on foot.
+		HideVehicleUI(playerid);
+
 		if(!IsValidVehicle(veh_Current[playerid]))
 		{
 			err("player state changed from vehicle but veh_Current is invalid", veh_Current[playerid]);
@@ -648,7 +653,6 @@ hook OnPlayerStateChange(playerid, newstate, oldstate)
 
 		SetVehicleExternalLock(veh_Current[playerid], E_LOCK_STATE_OPEN);
 		SetCameraBehindPlayer(playerid);
-		HideVehicleUI(playerid);
 
 		log("[VEHICLE] %p exited %s (%d) as driver at %f, %f, %f", playerid, GetVehicleUUID(veh_Current[playerid]), veh_Current[playerid], veh_Data[veh_Current[playerid]][veh_spawnX], veh_Data[veh_Current[playerid]][veh_spawnY], veh_Data[veh_Current[playerid]][veh_spawnZ]);
 	}
@@ -726,6 +730,12 @@ HideVehicleUI(playerid)
 	PlayerTextDrawHide(playerid, veh_DamageUI[playerid]);
 	PlayerTextDrawHide(playerid, veh_EngineUI[playerid]);
 	PlayerTextDrawHide(playerid, veh_DoorsUI[playerid]);
+}
+
+hook OnPlayerSpawn(playerid)
+{
+	// Spawning is always on foot, so make sure no vehicle HUD carries over.
+	HideVehicleUI(playerid);
 }
 
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
