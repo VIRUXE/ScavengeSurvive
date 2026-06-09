@@ -29,12 +29,14 @@ stock isalphanumeric(chr)
 	return 0;
 }
 
-FormatSpecifier<'T'>(output[], timestamp)
+forward F@T(output[FORMAT_CUSTOM_SPEC_BUFFER_SIZE], timestamp);
+public F@T(output[FORMAT_CUSTOM_SPEC_BUFFER_SIZE], timestamp)
 {
 	strcat(output, TimestampToDateTime(timestamp, "%A %b %d %Y at %X"));
 }
 
-FormatSpecifier<'M'>(output[], millisecond)
+forward F@M(output[FORMAT_CUSTOM_SPEC_BUFFER_SIZE], millisecond);
+public F@M(output[FORMAT_CUSTOM_SPEC_BUFFER_SIZE], millisecond)
 {
 	strcat(output, MsToString(millisecond, "%h:%m:%s.%d"));
 }
