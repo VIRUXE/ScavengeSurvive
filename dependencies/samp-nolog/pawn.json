@@ -1,0 +1,23 @@
+{
+  "user": "Southclaws",
+  "repo": "samp-nolog",
+  "entry": "test/gamemodes/test.pwn",
+  "output": "test/gamemodes/test.amx",
+  "dependencies": ["Southclaws/samp-stdlib"],
+  "dev_dependencies": ["pawn-lang/YSI-Includes"],
+  "runtime": {
+    "plugins": ["Southclaws/samp-nolog"]
+  },
+  "resources": [
+    {
+      "name": "nolog.so",
+      "archive": false,
+      "platform": "linux"
+    },
+    {
+      "name": "nolog.dll",
+      "archive": false,
+      "platform": "windows"
+    }
+  ]
+}

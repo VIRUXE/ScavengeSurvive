@@ -1,0 +1,10 @@
+{
+    "user": "Southclaws",
+    "repo": "samp-logger",
+    "entry": "tests.pwn",
+    "output": "tests.amx",
+    "dependencies": [
+        "pawn-lang/samp-stdlib",
+        "AmyrAhmady/samp-plugin-crashdetect:v4.22"
+    ]
+}

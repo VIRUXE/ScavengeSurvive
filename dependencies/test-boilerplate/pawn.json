@@ -1,0 +1,8 @@
+{
+    "user": "ScavengeSurvive",
+    "repo": "test-boilerplate",
+    "entry": "test.pwn",
+    "output": "gamemodes/test.amx",
+    "dependencies": ["sampctl/samp-stdlib", "pawn-lang/YSI-Includes#f0f51cd9fc41ed2c7af49833ead7cd3ab7367b50"],
+    "local": true
+}

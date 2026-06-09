@@ -1,0 +1,22 @@
+{
+  "user": "Southclaws",
+  "repo": "pawn-uuid",
+  "entry": "test/gamemodes/test.pwn",
+  "output": "test/gamemodes/test.amx",
+  "dependencies": ["Southclaws/samp-stdlib"],
+  "runtime": {
+    "plugins": ["Southclaws/pawn-uuid"]
+  },
+  "resources": [
+    {
+      "name": "uuid.so",
+      "archive": false,
+      "platform": "linux"
+    },
+    {
+      "name": "uuid.dll",
+      "archive": false,
+      "platform": "windows"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+    "user": "Southclaws",
+    "repo": "samp-linegen",
+    "entry": "testing.pwn",
+    "output": "testing.amx",
+    "dependencies": [
+        "Southclaws/samp-stdlib",
+        "pawn-lang/YSI-Includes",
+        "samp-incognito/samp-streamer-plugin"
+    ]
+}
