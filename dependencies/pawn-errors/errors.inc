@@ -153,7 +153,7 @@ stock Handled(silent = false) {
     if(Count == 0) {
         if(!silent) {
             print("[debug] attempt to handle non-present error");
-            PrintAmxBacktrace();
+            PrintBacktrace();
         }
         return 1;
     }

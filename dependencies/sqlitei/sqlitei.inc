@@ -379,24 +379,24 @@ const
 
 #if !DB_LOG_TO_CHAT
 	#if DB_DEBUG_BACKTRACE_NOTICE
-		#define DB_Notice(%1)    print(!"SQLitei Notice: " %1),PrintAmxBacktrace()
-		#define DB_Noticef(%1)   printf("SQLitei Notice: " %1),PrintAmxBacktrace()
+		#define DB_Notice(%1)    print(!"SQLitei Notice: " %1),PrintBacktrace()
+		#define DB_Noticef(%1)   printf("SQLitei Notice: " %1),PrintBacktrace()
 	#else
 		#define DB_Notice(%1)    print(!"SQLitei Notice: " %1)
 		#define DB_Noticef(%1)   printf("SQLitei Notice: " %1)
 	#endif
 
 	#if DB_DEBUG_BACKTRACE_WARNING
-		#define DB_Warning(%1)   print(!"SQLitei Warning: " %1),PrintAmxBacktrace()
-		#define DB_Warningf(%1)  printf("SQLitei Warning: " %1),PrintAmxBacktrace()
+		#define DB_Warning(%1)   print(!"SQLitei Warning: " %1),PrintBacktrace()
+		#define DB_Warningf(%1)  printf("SQLitei Warning: " %1),PrintBacktrace()
 	#else
 		#define DB_Warning(%1)   print(!"SQLitei Warning: " %1)
 		#define DB_Warningf(%1)  printf("SQLitei Warning: " %1)
 	#endif
 
 	#if DB_DEBUG_BACKTRACE_ERROR
-		#define DB_Error(%1)     print(!"SQLitei Error: " %1),PrintAmxBacktrace()
-		#define DB_Errorf(%1)    printf("SQLitei Error: " %1),PrintAmxBacktrace()
+		#define DB_Error(%1)     print(!"SQLitei Error: " %1),PrintBacktrace()
+		#define DB_Errorf(%1)    printf("SQLitei Error: " %1),PrintBacktrace()
 	#else
 		#define DB_Error(%1)     print(!"SQLitei Error: " %1)
 		#define DB_Errorf(%1)    printf("SQLitei Error: " %1)
@@ -404,7 +404,7 @@ const
 	
 	#if DB_DEBUG
 		#if DB_DEBUG_BACKTRACE_DEBUG
-			#define DB_Debug(%1)  printf("SQLitei Debug: " %1),PrintAmxBacktrace()
+			#define DB_Debug(%1)  printf("SQLitei Debug: " %1),PrintBacktrace()
 		#else
 			#define DB_Debug(%1)  printf("SQLitei Debug: " %1)
 		#endif

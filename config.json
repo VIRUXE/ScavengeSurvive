@@ -105,6 +105,7 @@
     "password": "",
     "pawn": {
         "legacy_plugins": [
+            "crashdetect.so",
             "sscanf.so",
             "streamer.so",
             "chrono.so",
