@@ -2,7 +2,7 @@
   "overrides": {
     "BigETI/pawn-memory": "BigETI/pawn-memory:2.0.1",
     "ScavengeSurvive/button": "ADRFranklin/ScavengeSurvive_button@master",
-    "ScavengeSurvive/item": "ScavengeSurvive/item:1.10.5",
+    "ScavengeSurvive/item": "kolor4do/item@master",
     "ScavengeSurvive/item-array-data": "ScavengeSurvive/item-array-data",
     "Southclaws-samp-logger": "Southclaws/samp-logger"
   }
