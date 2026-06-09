@@ -40,6 +40,7 @@
 		"Southclaws/samp-ladders"
 	],
 	"build": {
+		"version": "3.10.9",
 		"args": [
 			"-;+",
 			"-(+",
