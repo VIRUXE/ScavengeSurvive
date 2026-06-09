@@ -87,7 +87,8 @@ Float:		veh_TempVelocity		[MAX_PLAYERS],
 			veh_Current				[MAX_PLAYERS],
 			veh_Entering			[MAX_PLAYERS],
 			veh_EnterTick			[MAX_PLAYERS],
-			veh_ExitTick			[MAX_PLAYERS];
+			veh_ExitTick			[MAX_PLAYERS],
+bool:		veh_HudShown			[MAX_PLAYERS];
 
 
 forward OnVehicleCreated(vehicleid);
@@ -420,6 +421,13 @@ PlayerVehicleUpdate(playerid)
 	if(GetVehicleTypeCategory(vehicletype) == VEHICLE_CATEGORY_PUSHBIKE)
 		return;
 
+	// IsPlayerInAnyVehicle is also true mid enter/exit animation, when the
+	// player state is still on-foot. Only drive the HUD while actually seated,
+	// otherwise the unconditional DMG/ENG show below re-displays it right after
+	// it was hidden on exit and it lingers on foot.
+	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER && GetPlayerState(playerid) != PLAYER_STATE_PASSENGER)
+		return;
+
 	GetVehicleHealth(vehicleid, health);
 //	velocitychange = floatabs(veh_TempVelocity[playerid] - GetPlayerTotalVelocity(playerid));
 	maxfuel = GetVehicleTypeMaxFuel(vehicletype);
@@ -551,6 +559,7 @@ PlayerVehicleUpdate(playerid)
 
 	PlayerTextDrawShow(playerid, veh_DamageUI[playerid]);
 	PlayerTextDrawShow(playerid, veh_EngineUI[playerid]);
+	veh_HudShown[playerid] = true;
 
 	if(IsBaseWeaponDriveby(GetPlayerWeapon(playerid)))
 	{
@@ -720,6 +729,8 @@ ShowVehicleUI(playerid, vehicleid)
 		PlayerTextDrawShow(playerid, veh_EngineUI[playerid]);
 		PlayerTextDrawShow(playerid, veh_DoorsUI[playerid]);
 	}
+
+	veh_HudShown[playerid] = true;
 }
 
 HideVehicleUI(playerid)
@@ -730,6 +741,16 @@ HideVehicleUI(playerid)
 	PlayerTextDrawHide(playerid, veh_DamageUI[playerid]);
 	PlayerTextDrawHide(playerid, veh_EngineUI[playerid]);
 	PlayerTextDrawHide(playerid, veh_DoorsUI[playerid]);
+
+	veh_HudShown[playerid] = false;
+}
+
+// Called every tick while on foot: clears the vehicle HUD if it is still up
+// (e.g. left over from the enter/exit animation window or an odd respawn).
+EnsureVehicleHudHidden(playerid)
+{
+	if(veh_HudShown[playerid])
+		HideVehicleUI(playerid);
 }
 
 hook OnPlayerSpawn(playerid)

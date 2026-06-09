@@ -282,6 +282,8 @@ ptask PlayerUpdateFast[100](playerid)
 	}
 	else
 	{
+		EnsureVehicleHudHidden(playerid);
+
 		if(!gVehicleSurfing)
 			VehicleSurfingCheck(playerid);
 	}
