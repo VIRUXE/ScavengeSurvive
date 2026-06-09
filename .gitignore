@@ -12,6 +12,11 @@ dependencies/
 
 # Dependency versions lockfile
 pawn.lock
+sampctl_build_file.inc
+
+# Repository-local sampctl dependency overrides and generated cache
+.sampctl-config/sampctl/*
+!.sampctl-config/sampctl/dependency-overrides.json
 
 #
 # Server/gamemode related files
