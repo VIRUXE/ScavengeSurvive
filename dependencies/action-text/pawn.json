@@ -1,0 +1,9 @@
+{
+    "entry": "test.pwn",
+    "output": "test.amx",
+    "dependencies": [
+      "pawn-lang/samp-stdlib",
+      "pawn-lang/YSI-Includes"
+    ],
+    "dev_dependencies": ["ScavengeSurvive/test-boilerplate"]
+}
