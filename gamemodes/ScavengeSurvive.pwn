@@ -617,9 +617,8 @@ main()
 
 	gServerInitialising = false;
 	gServerInitialiseTick = GetTickCount();
-
-	// Long-call detection is intentionally left disabled (see
-	// OnGameModeInit_Setup) - it produced false positives during world load.
+	SetCrashDetectLongCallTime(5000);
+	EnableCrashDetectLongCall();
 }
 
 /*
@@ -628,12 +627,6 @@ main()
 OnGameModeInit_Setup()
 {
 	print("[OnGameModeInit_Setup] Setting up...");
-
-	// open.mp doesn't forward the legacy `long_call_time 0` setting to the
-	// crashdetect plugin, so its long-callback detection is active and floods
-	// the log during the (intentionally long) world load. Disable it here, as
-	// early as possible, to match the previous SA-MP production behaviour.
-	DisableCrashDetectLongCall();
 
 	// removed the file thing, so left this at the last version number for now.
 	// probably needs a better method, like a build-time variable or something.
