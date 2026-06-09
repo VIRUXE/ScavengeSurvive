@@ -273,7 +273,7 @@ ptask PlayerUpdateFast[100](playerid)
 		return;
 	}
 
-	if(!IsPlayerSpawned(playerid))
+	if(!SS_IsPlayerSpawned(playerid))
 		return;
 
 	if(IsPlayerInAnyVehicle(playerid))

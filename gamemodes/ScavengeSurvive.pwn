@@ -18,7 +18,8 @@
 ==============================================================================*/
 
 
-#include <a_samp>
+#define SAMP_COMPAT
+#include <open.mp>
 
 /*==============================================================================
 
@@ -168,8 +169,6 @@ public OnGameModeInit()
 #include <zipline>					// By Southclaws:			https://github.com/Southclaws/Zipline
 #include <ladders>					// By Southclaws:			https://github.com/Southclaws/Ladder
 
-native WP_Hash(buffer[], len, const str[]);
-									// By Y_Less:				https://github.com/Southclaws/samp-whirlpool
 /*==============================================================================
 	Definitions
 ==============================================================================*/

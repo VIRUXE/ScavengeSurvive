@@ -270,6 +270,63 @@ Error:LoadAccount(playerid)
 
 /*==============================================================================
 
+	Password hashing (open.mp SHA256_PassHash with a per-account random salt).
+
+	Hashes are stored in the password field as "salt:hash" so no database
+	schema change is required. WP_Hash (Whirlpool plugin) was used previously;
+	old hashes are not compatible and accounts must be re-registered.
+
+==============================================================================*/
+
+#define ACCOUNT_SALT_LEN (16)
+
+static stock GeneratePasswordSalt(salt[], len = sizeof(salt))
+{
+	static const charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	new max = len - 1;
+	if(max > ACCOUNT_SALT_LEN)
+		max = ACCOUNT_SALT_LEN;
+
+	for(new i; i < max; i++)
+		salt[i] = charset[random(sizeof(charset) - 1)];
+
+	salt[max] = EOS;
+}
+
+// Produces a storable "salt:hash" string for the given plaintext password.
+stock HashPassword(const password[], dest[], len = sizeof(dest))
+{
+	new
+		salt[ACCOUNT_SALT_LEN + 1],
+		hash[65];
+
+	GeneratePasswordSalt(salt);
+	SHA256_PassHash(password, salt, hash, sizeof(hash));
+	format(dest, len, "%s:%s", salt, hash);
+}
+
+// Verifies a plaintext password against a stored "salt:hash" string.
+stock bool:VerifyPassword(const password[], const stored[])
+{
+	new pos = strfind(stored, ":");
+	if(pos < 1)
+		return false;
+
+	new
+		salt[ACCOUNT_SALT_LEN + 1],
+		storedhash[65],
+		hash[65];
+
+	strmid(salt, stored, 0, pos, sizeof(salt));
+	strmid(storedhash, stored, pos + 1, strlen(stored), sizeof(storedhash));
+	SHA256_PassHash(password, salt, hash, sizeof(hash));
+
+	return !strcmp(hash, storedhash);
+}
+
+
+/*==============================================================================
+
 	Creates a new account for a player with the specified password hash.
 
 ==============================================================================*/
@@ -349,7 +406,7 @@ DisplayRegisterPrompt(playerid)
 
 			new buffer[MAX_PASSWORD_LEN];
 
-			WP_Hash(buffer, MAX_PASSWORD_LEN, inputtext);
+			HashPassword(inputtext, buffer, MAX_PASSWORD_LEN);
 
 			new Error:e = CreateAccount(playerid, buffer);
 			if(IsError(e))
@@ -417,13 +474,11 @@ DisplayLoginPrompt(playerid, badpass = 0)
 			}
 
 			new
-				inputhash[MAX_PASSWORD_LEN],
 				storedhash[MAX_PASSWORD_LEN];
 
-			WP_Hash(inputhash, MAX_PASSWORD_LEN, inputtext);
 			GetPlayerPassHash(playerid, storedhash);
 
-			if(!strcmp(inputhash, storedhash))
+			if(VerifyPassword(inputtext, storedhash))
 			{
 				Login(playerid);
 			}
@@ -629,7 +684,7 @@ Logout(playerid, docombatlogcheck = 1)
 		DestroyItem(GetPlayerHolsterItem(playerid));
 		DestroyPlayerBag(playerid);
 		RemovePlayerHolsterItem(playerid);
-		RemovePlayerWeapon(playerid);
+		SS_RemovePlayerWeapon(playerid);
 
 		for(new i; i < MAX_INVENTORY_SLOTS; i++)
 		{

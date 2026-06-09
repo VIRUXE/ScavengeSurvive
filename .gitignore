@@ -34,21 +34,23 @@ server.cfg
 *.so
 !plugins/
 !plugins/*.so
+# open.mp server binary and its components
+!omp-server
+!components/
+!components/*.so
 announce
 !announce
-samp03svr
-!samp03svr
-samp-npc
-!samp-npc
 
 # logs
 logs/
 dist/
 server_log.txt
 crashinfo.txt
+log.txt
 
 # Ban list
 samp.ban
+bans.json
 
 #
 # Private resources

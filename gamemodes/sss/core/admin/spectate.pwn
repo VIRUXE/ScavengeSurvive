@@ -491,7 +491,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
 CanPlayerSpectate(playerid, targetid)
 {
-	if(targetid == playerid || !IsPlayerConnected(targetid) || !(IsPlayerSpawned(targetid)) || GetPlayerState(targetid) == PLAYER_STATE_SPECTATING)
+	if(targetid == playerid || !IsPlayerConnected(targetid) || !(SS_IsPlayerSpawned(targetid)) || GetPlayerState(targetid) == PLAYER_STATE_SPECTATING)
 		return 0;
 
 	if(GetPlayerAdminLevel(playerid) == 1)
@@ -515,7 +515,7 @@ GetPlayerSpectateTarget(playerid)
 	return spectate_Target[playerid];
 }
 
-stock GetPlayerSpectateType(playerid)
+stock SS_GetPlayerSpectateType(playerid)
 {
 	if(!IsPlayerConnected(playerid))
 		return -1;

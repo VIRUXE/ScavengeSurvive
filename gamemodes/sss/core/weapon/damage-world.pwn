@@ -21,7 +21,7 @@ hook OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
 	if(IsPlayerOnAdminDuty(playerid))
 		return 0;
 
-	if(!IsPlayerSpawned(playerid))
+	if(!SS_IsPlayerSpawned(playerid))
 		return 0;
 
 	if(issuerid == INVALID_PLAYER_ID)

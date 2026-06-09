@@ -1054,7 +1054,7 @@ stock SetVehicleDamageData(vehicleid, panels, doors, lights, tires)
 
 // veh_colour1
 // veh_colour2
-stock GetVehicleColours(vehicleid, &colour1, &colour2)
+stock SS_GetVehicleColours(vehicleid, &colour1, &colour2)
 {
 	if(!IsValidVehicle(vehicleid))
 		return 0;
@@ -1125,7 +1125,7 @@ stock IsVehicleUsed(vehicleid)
 }
 
 // veh_occupied
-stock IsVehicleOccupied(vehicleid)
+stock SS_IsVehicleOccupied(vehicleid)
 {
 	if(!IsValidVehicle(vehicleid))
 		return 0;
@@ -1135,7 +1135,7 @@ stock IsVehicleOccupied(vehicleid)
 
 
 // veh_state
-stock IsVehicleDead(vehicleid)
+stock SS_IsVehicleDead(vehicleid)
 {
 	if(!IsValidVehicle(vehicleid))
 		return 0;

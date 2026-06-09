@@ -26,13 +26,13 @@ public OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
 	if(IsPlayerOnAdminDuty(playerid))
 		return 0;
 
-	if(!IsPlayerSpawned(playerid))
+	if(!SS_IsPlayerSpawned(playerid))
 		return 0;
 
 	if(IsPlayerOnAdminDuty(issuerid))
 		return 0;
 
-	if(!IsPlayerSpawned(issuerid))
+	if(!SS_IsPlayerSpawned(issuerid))
 		return 0;
 
 	switch(weaponid)

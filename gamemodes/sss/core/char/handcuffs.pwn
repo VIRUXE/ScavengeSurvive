@@ -359,7 +359,7 @@ stock SetPlayerCuffs(playerid, toggle)
 	}
 }
 
-stock IsPlayerCuffed(playerid)
+stock SS_IsPlayerCuffed(playerid)
 {
 	return IsPlayerAttachedObjectSlotUsed(playerid, ATTACHSLOT_ITEM);
 }

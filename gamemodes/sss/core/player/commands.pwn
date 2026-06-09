@@ -135,7 +135,7 @@ CMD:dropall(playerid, params[])
 }
 timer Suicide[3000](playerid)
 {
-	RemovePlayerWeapon(playerid);
+	SS_RemovePlayerWeapon(playerid);
 	SetPlayerHP(playerid, -100.0);
 }
 */
@@ -162,15 +162,14 @@ CMD:changepass(playerid,params[])
 		new storedhash[MAX_PASSWORD_LEN];
 
 		GetPlayerPassHash(playerid, storedhash);
-		WP_Hash(buffer, MAX_PASSWORD_LEN, oldpass);
 		
-		if(!strcmp(buffer, storedhash))
+		if(VerifyPassword(oldpass, storedhash))
 		{
 			new name[MAX_PLAYER_NAME];
 
 			GetPlayerName(playerid, name, MAX_PLAYER_NAME);
 
-			WP_Hash(buffer, MAX_PASSWORD_LEN, newpass);
+			HashPassword(newpass, buffer, MAX_PASSWORD_LEN);
 			
 			if(SetAccountPassword(name, buffer))
 			{

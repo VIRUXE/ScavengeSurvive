@@ -33,10 +33,10 @@ hook OnPlayerGiveDamage(playerid, damagedid, Float:amount, weaponid, bodypart)
 	if(IsPlayerOnAdminDuty(playerid))
 		return 0;
 
-	if(!IsPlayerSpawned(damagedid))
+	if(!SS_IsPlayerSpawned(damagedid))
 		return 0;
 
-	if(!IsPlayerSpawned(playerid))
+	if(!SS_IsPlayerSpawned(playerid))
 		return 0;
 
 	_HandleFirearmDamage(playerid, damagedid, bodypart);

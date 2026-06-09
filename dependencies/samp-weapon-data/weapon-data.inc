@@ -128,7 +128,7 @@ stock GetWeaponMagSize(weaponid) {
 }
 
 // Returns the GTA slot for a weapon
-stock GetWeaponSlot(weaponid) {
+stock WeaponData_GetSlot(weaponid) {
     if(!(0 <= weaponid < MAX_WEAPONS)) {
         return 0;
     }

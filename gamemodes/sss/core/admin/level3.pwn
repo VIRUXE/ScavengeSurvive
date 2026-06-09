@@ -187,7 +187,7 @@ ACMD:free[2](playerid)
 	if(!IsPlayerOnAdminDuty(playerid))
 		return 6;
 
-	if(GetPlayerSpectateType(playerid) == SPECTATE_TYPE_FREE)
+	if(SS_GetPlayerSpectateType(playerid) == SPECTATE_TYPE_FREE)
 		ExitFreeMode(playerid);
 
 	else
@@ -627,7 +627,7 @@ ACMD:resetpassword[3](playerid, params[])
 
 	new buffer[129];
 
-	WP_Hash(buffer, MAX_PASSWORD_LEN, "password");
+	HashPassword("password", buffer, MAX_PASSWORD_LEN);
 
 	if(SetAccountPassword(params, buffer))
 		ChatMsg(playerid, YELLOW, " >  Password for '%s' reset.", params);

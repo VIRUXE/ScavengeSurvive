@@ -16,8 +16,7 @@
 		],
 		"includes": [
 			"legacy",
-			"dependencies/samp-stdlib",
-			"dependencies/pawn-stdlib",
+			"dependencies/omp-stdlib",
 			"dependencies/samp-stdutil",
 			"dependencies/samp-nolog",
 			"dependencies/samp-logger",
@@ -57,7 +56,7 @@
 			"dependencies/samp-linegen",
 			"dependencies/samp-zipline",
 			"dependencies/samp-ladders",
-			"dependencies/.resources/samp-plugin-crashdetect-fa6aea",
+			"dependencies/crashdetect-shim",
 			"dependencies/.resources/sscanf-7b5726",
 			"dependencies/.resources/samp-streamer-plugin-7c00b9"
 		]
