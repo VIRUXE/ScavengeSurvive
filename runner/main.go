@@ -24,38 +24,42 @@ func Run(cfg Config) error {
 		return errors.Wrap(err, "failed to get current working directory")
 	}
 
-	forceBuild := false
-	forceEnsure := false
-	if shouldEnsure(dir) {
-		forceBuild = true
-		forceEnsure = true
+	var pcx *rook.PackageContext
+	if staticRuntimeReady(dir) {
+		zap.L().Info("using bundled static runtime")
+	} else {
+		forceBuild := false
+		forceEnsure := false
+		if shouldEnsure(dir) {
+			forceBuild = true
+			forceEnsure = true
+		}
+
+		cacheDir, err := download.GetCacheDir()
+		if err != nil {
+			return errors.Wrap(err, "failed to get cache directory")
+		}
+
+		gh := github.NewClient(nil)
+
+		pcx, err = rook.NewPackageContext(gh, nil, true, dir, runtime.GOOS, cacheDir, "")
+		if err != nil {
+			return errors.Wrap(err, "failed to interpret directory as Pawn package")
+		}
+
+		pcx.CacheDir = cacheDir
+		pcx.ForceBuild = forceBuild
+		pcx.ForceEnsure = forceEnsure
+		pcx.Relative = true
+		if cfg.RconPassword != "" {
+			pcx.Package.Runtime.RCONPassword = &cfg.RconPassword
+		}
+
+		if err := pcx.RunPrepare(context.Background()); err != nil {
+			return errors.Wrap(err, "failed to prepare runtime")
+		}
+		zap.L().Info("prepared runtime environment")
 	}
-
-	cacheDir, err := download.GetCacheDir()
-	if err != nil {
-		return errors.Wrap(err, "failed to get cache directory")
-	}
-
-	gh := github.NewClient(nil)
-
-	pcx, err := rook.NewPackageContext(gh, nil, true, dir, runtime.GOOS, cacheDir, "")
-	if err != nil {
-		return errors.Wrap(err, "failed to interpret directory as Pawn package")
-	}
-
-	pcx.CacheDir = cacheDir
-	pcx.ForceBuild = forceBuild
-	pcx.ForceEnsure = forceEnsure
-	pcx.Relative = true
-	if cfg.RconPassword != "" {
-		pcx.Package.Runtime.RCONPassword = &cfg.RconPassword
-	}
-
-	if err := pcx.RunPrepare(context.Background()); err != nil {
-		return errors.Wrap(err, "failed to prepare runtime")
-	}
-
-	zap.L().Info("prepared runtime environment")
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, os.Interrupt)
@@ -69,8 +73,10 @@ func Run(cfg Config) error {
 
 	ps := pubsub.New(0)
 
-	if cfg.AutoBuild {
+	if cfg.AutoBuild && pcx != nil {
 		go RunWatcher(ctx, pcx)
+	} else if cfg.AutoBuild {
+		zap.L().Warn("automatic builds are disabled for bundled static runtimes")
 	}
 
 	go RunAPI(ctx, ps, cfg.Restart)
@@ -91,6 +97,31 @@ func Run(cfg Config) error {
 	case <-ctx.Done():
 		return context.Canceled
 	}
+}
+
+func staticRuntimeReady(dir string) bool {
+	files := []string{
+		"samp03svr",
+		"server.cfg",
+		"gamemodes/ScavengeSurvive.amx",
+		"plugins/nolog.so",
+		"plugins/crashdetect.so",
+		"plugins/sscanf.so",
+		"plugins/streamer.so",
+		"plugins/chrono.so",
+		"plugins/pawn-memory.so",
+		"plugins/Whirlpool.so",
+		"plugins/uuid.so",
+		"plugins/fsutil.so",
+	}
+
+	for _, file := range files {
+		info, err := os.Stat(filepath.Join(dir, file))
+		if err != nil || info.Size() == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 func shouldEnsure(dir string) bool {

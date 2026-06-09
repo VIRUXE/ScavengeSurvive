@@ -19,15 +19,34 @@ access the gamemode-specific features.
 
 ## Getting Started
 
-### Requirements
+### Static Release
+
+The Linux release is self-contained: it includes the compiled gamemode, SA-MP
+server, runner, every required plugin, and all Pawn includes. Extract the release
+archive and run:
+
+```sh
+./ss.exe
+```
+
+The runner detects the bundled runtime and starts it directly without using
+`sampctl` or downloading dependencies. The host must provide the 32-bit runtime
+libraries required by the SA-MP server and plugins. On Debian or Ubuntu:
+
+```sh
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libuuid1:i386
+```
+
+### Development Requirements
 
 To get started with Scavenge and Survive, you need the following tools installed
 on your computer:
 
-- [Git](https://git-scm.com) To clone the repository and provide functionality
-  to the [Runner](#runner)
-- [sampctl](https://github.com/Southclaws/sampctl) To install the necessary Pawn
-  dependencies and SA-MP plugins automatically.
+- [Git](https://git-scm.com) To clone the repository.
+- [sampctl](https://github.com/Southclaws/sampctl) To invoke the pinned Pawn
+  compiler. All Pawn includes are already vendored in `dependencies/`.
 - [The Go Language](https://golang.org/) To build tooling such as the Runner
   application which will make the development process easier.
 - [Taskfile](https://taskfile.dev) To run common development tasks such as
@@ -47,12 +66,10 @@ git clone https://github.com/Southclaws/ScavengeSurvive.git
 Now, open the directory in your favourite IDE. I recommend vscode. As long as
 you have a terminal in there, you'll be fine.
 
-Run the following commands to pull the Pawn dependencies, SA-MP plugins,
-compiler and other necessary components:
+Build the gamemode from the vendored includes:
 
 ```
-sampctl ensure
-sampctl build
+sampctl build --no-lock
 ```
 
 When on `master` branch, this should finish with no errors. You can check the
@@ -61,15 +78,15 @@ https://github.com/Southclaws/ScavengeSurvive/actions?query=workflow%3Abuild if
 the topmost item has a ✅ then the latest commit on `master` will compile with
 no errors.
 
-Now, build and run the runner with:
+Build and run the runner with:
 
 ```
 task
 ```
 
-This will run the default task which will compile and run the Runner. This
-application runs in the background while you develop and will keep the server
-running.
+This compiles and runs the Runner. When the bundled runtime files are present,
+the Runner starts the server directly and does not prepare or download a
+`sampctl` runtime.
 
 ### Development Workflow
 
