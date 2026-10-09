@@ -634,6 +634,8 @@ hook OnPlayerStateChange(playerid, newstate, oldstate)
 
 	if(oldstate == PLAYER_STATE_DRIVER)
 	{
+		HideVehicleUI(playerid);
+
 		if(!IsValidVehicle(veh_Current[playerid]))
 		{
 			err("player state changed from vehicle but veh_Current is invalid", veh_Current[playerid]);
@@ -674,6 +676,8 @@ hook OnPlayerStateChange(playerid, newstate, oldstate)
 
 	if(oldstate == PLAYER_STATE_PASSENGER)
 	{
+		HideVehicleUI(playerid);
+
 		if(!IsValidVehicle(veh_Current[playerid]))
 		{
 			err("player state changed from vehicle but veh_Current is invalid", veh_Current[playerid]);
@@ -736,6 +740,18 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 	if(!ispassenger)
 		veh_Entering[playerid] = vehicleid;
 
+	return 1;
+}
+
+hook OnPlayerDeath(playerid, killerid, reason)
+{
+	HideVehicleUI(playerid);
+	return 1;
+}
+
+hook OnPlayerSpawn(playerid)
+{
+	HideVehicleUI(playerid);
 	return 1;
 }
 
