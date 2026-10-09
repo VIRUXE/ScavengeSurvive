@@ -102,7 +102,6 @@ func Run(cfg Config) error {
 func staticRuntimeReady(dir string) bool {
 	files := []string{
 		"samp03svr",
-		"server.cfg",
 		"gamemodes/ScavengeSurvive.amx",
 		"plugins/nolog.so",
 		"plugins/crashdetect.so",

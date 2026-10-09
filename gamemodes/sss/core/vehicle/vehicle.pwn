@@ -426,6 +426,11 @@ PlayerVehicleUpdate(playerid)
 	fuelcons = GetVehicleTypeFuelConsumption(vehicletype);
 	playerstate = GetPlayerState(playerid);
 
+	// Still "in" the vehicle while the exit animation plays, but the UI has
+	// already been hidden by the state change: don't show it again.
+	if(playerstate != PLAYER_STATE_DRIVER && playerstate != PLAYER_STATE_PASSENGER)
+		return;
+
 	if(playerstate == PLAYER_STATE_DRIVER)
 	{
 		if(health > 300.0)
