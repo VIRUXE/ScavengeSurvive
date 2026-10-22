@@ -167,6 +167,7 @@ public OnGameModeInit()
 #include <linegen>					// By Southclaws:			https://github.com/Southclaws/Line
 #include <zipline>					// By Southclaws:			https://github.com/Southclaws/Zipline
 #include <ladders>					// By Southclaws:			https://github.com/Southclaws/Ladder
+#include <anticheat>				// By ricardoofnl:			https://github.com/ricardoofnl/open.mp-anticheat
 
 native WP_Hash(buffer[], len, const str[]);
 									// By Y_Less:				https://github.com/Southclaws/samp-whirlpool
@@ -571,6 +572,7 @@ new stock
 #include "sss/core/admin/report-cmds.pwn"
 #include "sss/core/admin/hack-detect.pwn"
 #include "sss/core/admin/hack-trap.pwn"
+#include "sss/core/admin/anticheat.pwn"
 #include "sss/core/admin/ban.pwn"
 #include "sss/core/admin/ban-command.pwn"
 #include "sss/core/admin/ban-list.pwn"
