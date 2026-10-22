@@ -23,38 +23,9 @@
 	BanPlayer so they show up in the ban list and can be lifted with /unban.
 	The component's built-in action is always suppressed.
 
-	Cheat names are kept here instead of calling AC_GetCheatName so the
-	compiled script references no component natives and still loads on a
-	server without the component (samp03svr).
+	The component is mandatory: the script calls its natives, so the
+	gamemode will not load without anticheat.so in components/.
 */
-
-
-static const ac_CheatNames[][] =
-{
-	"None",
-	"S0beit",
-	"CLEO",
-	"CLEO",
-	"CLEO",
-	"CLEO / MoonLoader",
-	"CLEO / MoonLoader",
-	"CLEO",
-	"SilentPatch",
-	"SampFuncs",
-	"SampFuncs",
-	"S0beit",
-	"Modified VorbisFile.dll",
-	"UltraWH",
-	"Silent Aim",
-	"Improved Deagle",
-	"StealthRemastered",
-	"Sensfix.asi",
-	"S0beit / RakNet anomaly",
-	"FakeMobile",
-	"Modded client",
-	"FakeR5 / ClientCheck spoofer",
-	"SCC ClientCheck spoofer"
-};
 
 
 static
@@ -84,10 +55,7 @@ public OnPlayerCheatDetected(playerid, cheatid, action)
 	GetPlayerName(playerid, name, MAX_PLAYER_NAME);
 	GetPlayerPos(playerid, x, y, z);
 
-	if(AC_CHEAT_NONE < cheatid < sizeof(ac_CheatNames))
-		strcat(cheatname, ac_CheatNames[cheatid]);
-
-	else
+	if(!AC_GetCheatName(cheatid, cheatname))
 		format(cheatname, sizeof(cheatname), "cheat %d", cheatid);
 
 	format(reason, sizeof(reason), "Anti-cheat detected %s", cheatname);
