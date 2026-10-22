@@ -59,7 +59,8 @@
 			"dependencies/samp-ladders",
 			"dependencies/.resources/samp-plugin-crashdetect-fa6aea",
 			"dependencies/.resources/sscanf-7b5726",
-			"dependencies/.resources/samp-streamer-plugin-7c00b9"
+			"dependencies/.resources/samp-streamer-plugin-7c00b9",
+			"dependencies/open.mp-anticheat"
 		]
 	},
 	"runtime": {
