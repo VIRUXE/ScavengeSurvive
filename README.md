@@ -72,10 +72,10 @@ Build the gamemode from the vendored includes:
 sampctl build --no-lock
 ```
 
-When on `master` branch, this should finish with no errors. You can check the
-state of the `master` branch here:
-https://github.com/Southclaws/ScavengeSurvive/actions?query=workflow%3Abuild if
-the topmost item has a ✅ then the latest commit on `master` will compile with
+When on `main` branch, this should finish with no errors. You can check the
+state of the `main` branch here:
+https://github.com/VIRUXE/ScavengeSurvive/actions?query=workflow%3Abuild if
+the topmost item has a ✅ then the latest commit on `main` will compile with
 no errors.
 
 Build and run the runner with:
