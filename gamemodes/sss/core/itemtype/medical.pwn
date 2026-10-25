@@ -277,7 +277,8 @@ hook OnHoldActionFinish(playerid)
 		{
 			new
 				Float:oldbleedrate,
-				Float:bleedrate;
+				Float:bleedrate,
+				bool:used = false;
 			GetPlayerBleedRate(med_HealTarget[playerid], bleedrate);
 			oldbleedrate = bleedrate;
 
@@ -289,10 +290,17 @@ hook OnHoldActionFinish(playerid)
 				ChatMsgLang(playerid, YELLOW, "REDUCEBLEED", oldbleedrate, bleedrate);
 
 				SetPlayerBleedRate(med_HealTarget[playerid], bleedrate);
-				DestroyItem(itemid);
+				used = true;
 			}
 
-			SetPlayerInfectionIntensity(playerid, 1, 0);
+			if(GetPlayerInfectionIntensity(playerid, 1) > 0)
+			{
+				SetPlayerInfectionIntensity(playerid, 1, 0);
+				used = true;
+			}
+
+			if(used)
+				DestroyItem(itemid);
 		}
 
 		PlayerStopHeal(playerid);
