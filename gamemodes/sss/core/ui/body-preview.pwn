@@ -62,6 +62,17 @@ hook OnPlayerConnect(playerid)
 }
 
 
+hook OnPlayerDisconnect(playerid, reason)
+{
+	// Player textdraws are freed on disconnect and their IDs reused on the
+	// next connect, so stale handles must not survive into the next session.
+	bod_Header[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	bod_Background[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	bod_Footer[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	bod_BodyPreview[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	bod_Shown[playerid] = false;
+}
+
 CreateBodyPreviewUI(playerid)
 {
 	bod_Header[playerid]			=CreatePlayerTextDraw(playerid, bod_UIPositionX[playerid], bod_UIPositionY[playerid], "Health status and wounds");

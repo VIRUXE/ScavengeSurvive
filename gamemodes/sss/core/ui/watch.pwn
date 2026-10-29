@@ -118,6 +118,17 @@ ptask UpdateWatch[1000](playerid)
 	return;
 }
 
+hook OnPlayerDisconnect(playerid, reason)
+{
+	// Player textdraws are freed on disconnect and their IDs reused on the
+	// next connect, so stale handles must not survive into the next session.
+	WatchBackground[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	WatchTime[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	WatchBear[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	WatchFreq[playerid] = PlayerText:INVALID_TEXT_DRAW;
+	watch_Show[playerid] = false;
+}
+
 hook OnPlayerSpawnChar(playerid)
 {
 	UpdateWatchWithScaleProfile(playerid);
